@@ -1,5 +1,5 @@
 {
-	"name": "buddy-depependencies",
+	"name": "buddy-dependencies",
 	"description": "A simple dependency management tool for Buddy projects.",
 	"version": "0.1.0",
 	"author": "popeindustries <alex@pope-industries.com>",
