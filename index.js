@@ -66,7 +66,7 @@ exports.install = function(options, fn) {
  * Force cleaning of temp directory
  */
 exports.clean = function() {
-	_clear();
+	if (existsSync(temp)) _clear();
 };
 
 /**
