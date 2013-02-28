@@ -36,5 +36,5 @@
 		"url": "git://github.com/popeindustries/buddy-depependencies.git"
 	},
   "readmeFilename": "README.md",
-	"readme": "Simple dependency management, as used in [Buddy](https://github.com/popeindustries/buddy)."
+	"readme": "[![Build Status](https://travis-ci.org/popeindustries/buddy-dependencies.png)](https://travis-ci.org/popeindustries/buddy-dependencies)\n\nSimple dependency management, as used in [Buddy](https://github.com/popeindustries/buddy).\n"
 }
