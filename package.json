@@ -13,7 +13,7 @@
 		"fstream": "0.1.22",
 		"semver": "1.1.4",
 		"async": "0.2.6",
-		"recur-fs": "0.1.0",
+		"recur-fs": "0.1.1",
 		"buddy-term": "0.1.0"
 	},
 	"devDependencies": {
