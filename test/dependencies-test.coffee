@@ -30,7 +30,7 @@ describe 'dependencies', ->
 			it 'should not generate a `url` for a named source', ->
 				should.not.exist(new Dependency('jquery', '').url)
 			it 'should store specified `resources` in an array', ->
-				dep = new Dependency('popeindustries/lib#lib/pi/dom|lib/pi/event.js|lib/pi/utils')
+				dep = new Dependency('popeindustries/lib#lib/pi/dom|lib/pi/event.js|lib/pi/utils', '')
 				dep.resources.should.include('lib/pi/dom')
 				dep.resources.should.include('lib/pi/event.js')
 				dep.resources.should.include('lib/pi/utils')
