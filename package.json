@@ -9,7 +9,7 @@
 		"rimraf": "2.1.4",
 		"bower": "0.8.5",
 		"request": "2.14.0",
-		"unzip": "0.1.4",
+		"unzip": "0.1.5",
 		"fstream": "0.1.22",
 		"semver": "1.1.4",
 		"async": "0.2.6",
