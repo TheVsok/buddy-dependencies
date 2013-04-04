@@ -7,7 +7,7 @@
 	"dependencies": {
 		"uglify-js": "2.2.5",
 		"rimraf": "2.1.4",
-		"bower": "0.8.5",
+		"bower": "0.8.6",
 		"request": "2.16.6",
 		"unzip": "0.1.7",
 		"fstream": "0.1.22",

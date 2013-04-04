@@ -256,7 +256,7 @@ describe('dependencies', function() {
 		});
 	});
 
-	describe('installing a named source with a dependency', function() {
+	describe.skip('installing a named source with a dependency', function() {
 		it('should install the resources to the given path', function(done) {
 			dependencies.install(require(path.resolve('buddy_name_dependant.js')).dependencies, function(err, files) {
 				fs.existsSync(path.resolve('libs/vendor/backbone.js')).should.be.true;
