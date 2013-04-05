@@ -24,6 +24,9 @@ describe('dependencies', function() {
 			it('should set `local` property if `source` exists locally', function() {
 				new Dependency('local/lib', '').local.should.be.true;
 			});
+			it('should set `local` property if `source` is a non-existant relative path', function() {
+				new Dependency('./foo', '').local.should.be.true;
+			});
 			it('should set `keep` property if `source` exists locally in `destination`', function() {
 				new Dependency('local/lib', '.').keep.should.be.true;
 			});
