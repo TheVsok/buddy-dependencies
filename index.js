@@ -4,27 +4,37 @@ var path = require('path')
 	, rimraf = require('rimraf')
 	, uglify = require('uglify-js')
 	, Dependency = require('./lib/dependency')
-	, term = require('buddy-term')
-	, debug = term.debug
-	, strong = term.strong
-	, colour = term.colour
 	, recurfs = require('recur-fs')
 	, mv = recurfs.mv
 	, cp = recurfs.cp
 	, mkdir = recurfs.mkdir
-	, existsSync = recurfs.existsSync;
+	, existsSync = fs.existsSync;
 
 var childDependencies = []
 	, dependencies = []
 	, outputFiles = []
-	, temp = null;
+	, temp = null
+	, term = {
+		debug: function(){},
+		warn: function(){},
+		print: function(){},
+		strong: function(){},
+		colour: function(){},
+		GREEN: ''
+	};
 
 /**
  * Install dependencies and call 'fn' when complete
  * param {Object} options
+ * param {Object} terminal
  * param {Function} fn(err, files)
  */
-exports.install = function(options, fn) {
+exports.install = function(options, terminal, fn) {
+	if ('function' === typeof terminal) {
+		fn = terminal;
+	} else {
+		term = terminal;
+	}
 	var data;
 	temp = path.resolve('.tmp');
 	dependencies = [];
@@ -39,7 +49,9 @@ exports.install = function(options, fn) {
 	// Create temp directory to store archive downloads
 	mkdir(temp, function(err) {
 		if (err) return fn(err);
-		debug("created temp directory: " + (strong(path.relative(process.cwd(), temp))), 3);
+		term.debug("created temp directory: "
+			+ term.strong(path.relative(process.cwd(), temp)),
+		3);
 		// Install
 		async.forEach(dependencies, _installDependency, function(err) {
 			// All errors demoted to warnings
@@ -86,10 +98,15 @@ function _installDependency(dependency, fn) {
 			// Store dependencies
 			if (dependencies.length) {
 				dependencies.forEach(function(source) {
-					childDependencies.push(new Dependency(source, dependency.destination, dependency.output, temp));
+					childDependencies.push(new Dependency(source, dependency.destination, dependency.output, temp, term));
 				});
 			}
-			term.print("" + (colour('installed', term.GREEN)) + " " + (strong(dependency.id)) + " to " + (strong(path.relative(process.cwd(), dependency.destination))), 3);
+			term.print(term.colour('installed', term.GREEN)
+				+ " "
+				+ term.strong(dependency.id)
+				+ " to "
+				+ term.strong(path.relative(process.cwd(), dependency.destination)),
+			3);
 			// Store generated file references
 			outputFiles = outputFiles.concat(dependency.files);
 			fn();
@@ -107,7 +124,6 @@ function _pack(fn) {
 		, outputable = dependencies.filter(function(dependency) {
 			return dependency.output;
 		});
-	_clear();
 	// Collect outputable dependencies
 	if (outputable.length) {
 		outputable.forEach(function(dependency) {
@@ -139,8 +155,12 @@ function _pack(fn) {
 					})
 					// Notify and store generated
 					, (function(cb) {
-						term.print("" + (colour('compressed', term.GREEN)) + " " + (strong(path.relative(process.cwd(), output))), 3);
+						term.print(term.colour('compressed', term.GREEN)
+							+ " "
+							+ term.strong(path.relative(process.cwd(), output)),
+						3);
 						outputFiles.push(output);
+						_clear();
 						cb();
 					})
 				// Return with error
@@ -148,6 +168,7 @@ function _pack(fn) {
 			});
 		}
 	} else {
+		_clear();
 		fn();
 	}
 }

@@ -6,8 +6,6 @@ var path = require('path')
 	, dependencies = require('..')
 	, Dependency = require('../lib/dependency');
 
-require('buddy-term').silent = true;
-
 describe('dependencies', function() {
 	before(function() {
 		process.chdir(path.resolve(__dirname, 'fixtures/dependencies'));
@@ -259,7 +257,7 @@ describe('dependencies', function() {
 		});
 	});
 
-	describe.skip('installing a named source with a dependency', function() {
+	describe('installing a named source with a dependency', function() {
 		it('should install the resources to the given path', function(done) {
 			dependencies.install(require(path.resolve('buddy_name_dependant.js')).dependencies, function(err, files) {
 				fs.existsSync(path.resolve('libs/vendor/backbone.js')).should.be.true;
@@ -290,6 +288,15 @@ describe('dependencies', function() {
 	describe('installing sources with a specified output', function() {
 		it('should concatenate and compress the resources to the given output path', function(done) {
 			dependencies.install(require(path.resolve('buddy_output.js')).dependencies, function(err, files) {
+				fs.existsSync(path.resolve('libs/js/libs.js')).should.be.true;
+				done();
+			});
+		});
+	});
+
+	describe('installing sources with a shortcut specified output', function() {
+		it('should concatenate and compress the resources to the given output path', function(done) {
+			dependencies.install(require(path.resolve('buddy_output_shortcut.js')).dependencies, function(err, files) {
 				fs.existsSync(path.resolve('libs/js/libs.js')).should.be.true;
 				done();
 			});

@@ -7,26 +7,23 @@
 	"dependencies": {
 		"uglify-js": "2.2.5",
 		"rimraf": "2.1.4",
-		"bower": "0.8.6",
 		"request": "2.16.6",
 		"unzip": "0.1.7",
 		"fstream": "0.1.22",
 		"semver": "1.1.4",
 		"async": "0.2.6",
-		"recur-fs": "0.1.2",
-		"buddy-term": "0.2.0"
+		"recur-fs": "0.1.2"
 	},
 	"devDependencies": {
 		"should": "*",
-		"mocha": "*",
-		"coffee-script": "*"
+		"mocha": "*"
 	},
 	"directories": {
 		"lib": "./lib"
 	},
 	"main": "index.js",
 	"scripts": {
-		"test": "mocha --reporter spec --require should -t 40000"
+		"test": "mocha --reporter spec --require should -t 100000"
 	},
 	"engines": {
 		"node": ">=0.8.0"
