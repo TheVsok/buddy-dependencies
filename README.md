@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/popeindustries/buddy-dependencies.png)](https://travis-ci.org/popeindustries/buddy-dependencies)
+<!-- [![Build Status](https://travis-ci.org/popeindustries/buddy-dependencies.png)](https://travis-ci.org/popeindustries/buddy-dependencies) -->
 
 **buddy-dependencies** is an add-on for [Buddy](https://github.com/popeindustries/buddy) to provide simple dependency management, supplementing the features provided by NPM.
 

@@ -142,7 +142,7 @@ describe('dependencies', function() {
 				this.temp = path.resolve('libs');
 				if (!fs.existsSync(this.temp)) fs.mkdirSync(this.temp);
 			});
-			it.skip('should download an archive file to the temp directory', function(done) {
+			it('should download an archive file to the temp directory', function(done) {
 				var dependency = new Dependency('popeindustries/buddy', '', null, this.temp);
 				dependency.fetch(function(err) {
 					dependency.location.should.eql(path.resolve('libs', 'buddy-master'));
@@ -257,7 +257,7 @@ describe('dependencies', function() {
 		});
 	});
 
-	describe.skip('installing a named source with a dependency', function() {
+	describe('installing a named source with a dependency', function() {
 		it('should install the resources to the given path', function(done) {
 			dependencies.install(require(path.resolve('buddy_name_dependant.js')).dependencies, function(err, files) {
 				fs.existsSync(path.resolve('libs/vendor/backbone.js')).should.be.true;
