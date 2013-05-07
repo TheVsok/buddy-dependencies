@@ -5,13 +5,13 @@
 	"author": "popeindustries <alex@pope-industries.com>",
 	"keywords": ["dependency", "installer", "buddy"],
 	"dependencies": {
-		"uglify-js": "2.2.5",
+		"uglify-js": "2.3.0",
 		"rimraf": "2.1.4",
-		"request": "2.16.6",
+		"request": "2.21.0",
 		"unzip": "0.1.7",
 		"fstream": "0.1.22",
 		"semver": "1.1.4",
-		"async": "0.2.6",
+		"async": "0.2.8",
 		"recur-fs": "0.1.2"
 	},
 	"devDependencies": {
