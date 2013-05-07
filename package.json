@@ -1,7 +1,7 @@
 {
 	"name": "buddy-dependencies",
 	"description": "A simple dependency management tool for Buddy projects.",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"author": "popeindustries <alex@pope-industries.com>",
 	"keywords": ["dependency", "installer", "buddy"],
 	"dependencies": {
