@@ -52,7 +52,7 @@ describe('dependencies', function() {
 			it('should resolve a valid `url`', function(done) {
 				var dependency = new Dependency('backbone', '');
 				dependency.lookupPackage(function(err) {
-					dependency.url.should.eql('https://github.com/documentcloud/backbone/archive/master.zip');
+					dependency.url.should.eql('https://github.com/jashkenas/backbone/archive/master.zip');
 					done();
 				});
 			});
@@ -67,15 +67,15 @@ describe('dependencies', function() {
 
 		describe('version validation', function() {
 			beforeEach(function() {
-				this.dependency = new Dependency('documentcloud/underscore', '');
+				this.dependency = new Dependency('popeindustries/buddy', '');
 			});
 			afterEach(function() {
 				this.dependency = null;
 			});
-			it('should ignore `1.2.3` as a valid version', function(done) {
-				this.dependency.version = '1.2.3';
+			it('should ignore `0.17.9` as a valid version', function(done) {
+				this.dependency.version = '0.17.9';
 				this.dependency.validateVersion(function(err) {
-					this.dependency.version.should.eql('1.2.3');
+					this.dependency.version.should.eql('0.17.9');
 					done();
 				}.bind(this));
 			});
@@ -89,49 +89,49 @@ describe('dependencies', function() {
 			it('should set the latest version for `*`', function(done) {
 				this.dependency.version = '*';
 				this.dependency.validateVersion(function(err) {
-					this.dependency.version.should.eql('1.4.4');
+					this.dependency.version.should.eql('0.17.9');
 					done();
 				}.bind(this));
 			});
 			it('should set the latest version for `latest`', function(done) {
 				this.dependency.version = 'latest';
 				this.dependency.validateVersion(function(err) {
-					this.dependency.version.should.eql('1.4.4');
+					this.dependency.version.should.eql('0.17.9');
 					done();
 				}.bind(this));
 			});
-			it('should set the highest version that satisfies `>=1.3.2`', function(done) {
-				this.dependency.version = '>=1.3.2';
+			it('should set the highest version that satisfies `>=0.17.8`', function(done) {
+				this.dependency.version = '>=0.17.8';
 				this.dependency.validateVersion(function(err) {
-					this.dependency.version.should.eql('1.4.4');
+					this.dependency.version.should.eql('0.17.9');
 					done();
 				}.bind(this));
 			});
-			it('should set the highest version that satisfies `>1.3.2`', function(done) {
-				this.dependency.version = '>1.3.2';
+			it('should set the highest version that satisfies `>0.17.0`', function(done) {
+				this.dependency.version = '>0.17.0';
 				this.dependency.validateVersion(function(err) {
-					this.dependency.version.should.eql('1.4.4');
+					this.dependency.version.should.eql('0.17.9');
 					done();
 				}.bind(this));
 			});
-			it('should set the highest version that satisfies `1.3.x`', function(done) {
-				this.dependency.version = '1.3.x';
+			it('should set the highest version that satisfies `0.16.x`', function(done) {
+				this.dependency.version = '0.16.x';
 				this.dependency.validateVersion(function(err) {
-					this.dependency.version.should.eql('1.3.3');
+					this.dependency.version.should.eql('0.16.4');
 					done();
 				}.bind(this));
 			});
-			it('should set the highest version that satisfies `1.x`', function(done) {
-				this.dependency.version = '1.x';
+			it('should set the highest version that satisfies `0.x`', function(done) {
+				this.dependency.version = '0.x';
 				this.dependency.validateVersion(function(err) {
-					this.dependency.version.should.eql('1.4.4');
+					this.dependency.version.should.eql('0.17.9');
 					done();
 				}.bind(this));
 			});
-			it('should set the highest version that satisfies `~1.3.2`', function(done) {
-				this.dependency.version = '~1.3.2';
+			it('should set the highest version that satisfies `~0.17.1`', function(done) {
+				this.dependency.version = '~0.17.1';
 				this.dependency.validateVersion(function(err) {
-					this.dependency.version.should.eql('1.3.3');
+					this.dependency.version.should.eql('0.17.9');
 					done();
 				}.bind(this));
 			});
