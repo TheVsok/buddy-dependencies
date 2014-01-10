@@ -1,5 +1,3 @@
-<!-- [![Build Status](https://travis-ci.org/popeindustries/buddy-dependencies.png)](https://travis-ci.org/popeindustries/buddy-dependencies) -->
-
 **buddy-dependencies** is an add-on for [Buddy](https://github.com/popeindustries/buddy) to provide simple dependency management, supplementing the features provided by NPM.
 
 ## Features
@@ -19,7 +17,7 @@ Add `buddy-dependencies` alongside `buddy` in your *package.json* file:
   "description": "This is my web project",
   "version": "0.1.0",
   "devDependencies": {
-    "buddy": "0.12.0",
+    "buddy": "1.0.0",
     "buddy-dependencies": "0.2.x"
   }
 }
@@ -48,7 +46,7 @@ package.json
   "description": "This is my web project",
   "version": "0.1.0",
   "devDependencies": {
-    "buddy": "0.12.x",
+    "buddy": "1.0.0",
     "buddy-dependencies": "0.2.x"
   },
   "buddy": {
@@ -72,7 +70,7 @@ package.json
   "description": "This is my web project",
   "version": "0.1.0",
   "devDependencies": {
-    "buddy": "0.12.x",
+    "buddy": "1.0.0",
     "buddy-dependencies": "0.2.x"
   },
   "buddy": {
@@ -100,7 +98,7 @@ package.json
   "description": "This is my web project",
   "version": "0.1.0",
   "devDependencies": {
-    "buddy": "0.12.x",
+    "buddy": "1.0.0",
     "buddy-dependencies": "0.2.x"
   },
   "buddy": {
@@ -127,7 +125,7 @@ package.json
   "description": "This is my web project",
   "version": "0.1.0",
   "devDependencies": {
-    "buddy": "0.12.x",
+    "buddy": "1.0.0",
     "buddy-dependencies": "0.2.x"
   },
   "buddy": {
@@ -163,7 +161,7 @@ Dependency resources are installed from local locations or remotely from Github.
 
 (The MIT License)
 
-Copyright (c) 2011-2013 Pope-Industries &lt;alex@pope-industries.com&gt;
+Copyright (c) 2011-2014 Pope-Industries &lt;alex@pope-industries.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
